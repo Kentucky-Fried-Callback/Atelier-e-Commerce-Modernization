@@ -166,8 +166,7 @@ const ProductOverview = ({ setCartData, id, authKey, onClickReadAllReviews }) =>
     };
 
     // Add item to the cart
-    axios
-      .post("https://app-hrsei-api.herokuapp.com/api/fec2/rfp/cart", newCartItem, authKey)
+    axios.post("/cart", newCartItem, authKey)
       .then((response) => {
         // setCartDataUpdated(true);
 

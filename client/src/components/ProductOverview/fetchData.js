@@ -3,9 +3,9 @@ import axios from 'axios';
 const fetchData = (id, authKey, setProductData, setStylesData, setReviewsData, setCurrentStyleId, setSelectedStyle, setavailableQuantities, setCurrentSKUs, setErrorMessage, setError) => {
   // Fetching all data using Promise.all
   return Promise.all([
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${id}`, authKey),
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${id}/styles`, authKey),
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews/meta/?product_id=${id}`, authKey),
+    axios.get(`/product:${id}`),
+    axios.get(`/styles:${id}`),
+    axios.get(`/meta:${id}`),
     // axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart?session_id=${id}`, authKey)
   ])
     .then(([productResponse, stylesResponse, reviewsResponse]) => {
