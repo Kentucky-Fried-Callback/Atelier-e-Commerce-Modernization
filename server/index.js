@@ -186,6 +186,14 @@ app.post('/questions:id', function(req, res) {
     .catch(() => {
       res.status(401).send();
     })
+});
+
+//Post to Cart
+app.post('/cart', function(req, res) {
+  axios.post("https://app-hrsei-api.herokuapp.com/api/fec2/rfp/cart", req.body, token)
+    .then((response) => {
+      res.status(202).send();
+    })
 })
 app.listen(PORT, ()=>{
   console.log(`Listening at localhost port ${PORT}`);

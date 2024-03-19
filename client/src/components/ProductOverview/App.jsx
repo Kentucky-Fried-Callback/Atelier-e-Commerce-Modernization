@@ -37,8 +37,8 @@ const App = () => {
     useEffect(() => {
       // Fetching data using Promise.all
       Promise.all([
-        axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${productID}`, token),
-        axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart?session_id=${productID}`, token)
+        axios.get(`/product:${productID}`),
+        axios.get(`/cart:${productID}`)
       ])
         .then(([metaResponse, cartResponse]) => {
           setMetaData(metaResponse.data);
